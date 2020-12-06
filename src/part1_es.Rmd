@@ -59,3 +59,18 @@ AIC should only be part of the way we choose models. We need to think about what
 stargazer(lm1, lm3, lm4, type = "html")
 ```
 
+## Omitted variable bias
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, bill_depth_mm)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, bill_depth_mm, group = species)) +
+  geom_point(aes(color = species)) +
+  geom_smooth(method = "lm")
+  
+```
+
